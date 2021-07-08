@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}我的申请{% endblock %}
+
+{% block main %}
+<div class="containter">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            {% if user.is_authenticated %}
+                <p>待补充</p>
+            {% else %}
+                <span>未登录，跳转到首页...</span>
+                <script type="text/javascript">
+                    window.location.href = '/';
+                </script>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

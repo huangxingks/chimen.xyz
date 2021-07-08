@@ -1,0 +1,12 @@
+h4 {
+    margin: 1rem 0;
+}
+
+.table a {
+    text-decoration: none !important;
+    color: grey !important;
+}
+
+.table a:hover {
+    color: black !important;
+}

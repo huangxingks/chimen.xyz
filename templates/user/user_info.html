@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}个人中心{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'css/user_info.css' %}">{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="font-weight-bold">用户信息</h4>
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                      <td>昵称：{{ user.get_displayname }}</td>
+                      <td><a href="{% url 'user:change_displayname' %}?from={{ request.get_full_path }}">修改昵称</a></td>
+                    </tr>
+                    <tr>
+                      <td>邮箱：{{ user.email }}</td>
+                      <td><a href="{% url 'user:change_email' %}?from={{ request.get_full_path }}">修改邮箱</a></td>
+                    </tr>
+                    <tr>
+                      <td>密码：**********</td>
+                      <td><a href="{% url 'user:change_password' %}?from={{ request.get_full_path }}">修改密码</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

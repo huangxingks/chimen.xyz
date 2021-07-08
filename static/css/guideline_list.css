@@ -1,0 +1,73 @@
+.sidebar {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 10px 0 0;
+    border-right-style: solid;
+    border-right-color: rgba(0, 0, 0, .1);
+    border-right-width: 1px;
+    margin-top: 3rem;
+}
+
+.sidebar-section-title {
+    margin: 0.8rem 15px;
+}
+
+.form-check {
+    font-size: median;
+    margin-left: 15px;
+}
+
+.sidebar .btn {
+    margin: 1rem 1.8rem;
+}
+
+h3.guideline-category {
+    margin-top: .8rem;
+    margin-bottom: .8rem;
+}
+
+a {
+    color: grey;
+}
+
+a:hover {
+    color: black;
+}
+
+a.guideline-title {
+    font-size: large;
+    display: block;
+    margin: .5rem 0;
+    text-decoration: none;
+}
+
+.pagebar {
+    margin-top: 30px;
+}
+
+.page-link{
+    color: red;
+}
+.page-link:hover{
+    z-index:2;
+    color: red;
+    text-decoration:none;
+    background-color:#e9ecef;
+    border-color:#dee2e6
+}
+.page-link:focus{
+    z-index:3;
+    outline:0;
+    box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
+.page-item.active .page-link{
+    background-color: red;
+    border-color: red;
+}
+.page-item.disabled .page-link{
+    color:#6c757d;
+    pointer-events:none;
+    cursor:auto;
+    background-color:#fff;
+    border-color:#dee2e6}

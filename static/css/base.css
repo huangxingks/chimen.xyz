@@ -1,0 +1,32 @@
+.navbar {
+    z-index: 200;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, .1);
+    border-bottom-width: 1px;
+}
+
+img#logo {
+    width: auto;
+    height: 30px;
+}
+
+.nav-item {
+    margin: 1px 3px;
+}
+
+.btn-login {
+    color: white !important;
+}
+
+.btn-register {
+    color: red !important;
+}
+
+.btn-register:hover {
+    color: white !important;
+}
+
+
+.main {
+    margin-top: 60px;
+}

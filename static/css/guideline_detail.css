@@ -1,0 +1,79 @@
+a {
+    text-decoration: none !important;
+}
+
+.guideline-meta a, .guideline-flow a, .add-comment a {
+    color: grey !important;
+}
+
+.guideline-meta a:hover, .guideline-flow a:hover,  .add-comment a:hover {
+    color: black !important;
+}
+
+.guideline-title {
+    margin: 1rem 0;
+}
+
+.guideline-meta span {
+    margin: 1rem 0;
+}
+
+h5.guideline-subtitle-1 {
+    margin: 1rem 0;
+}
+
+h6.guideline-subtitle-2  {
+    margin: 1rem 0;
+}
+
+.guideline-section p {
+    margin: 0.2rem 0;
+}
+
+.like, .apply {
+    padding: 0.3em 0.3em;
+    margin-right: .3rem;
+}
+
+.like .active {
+    color: pink;
+}
+
+.comment-area {
+    margin-top: 3rem;
+}
+
+.comment {
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.reply {
+    margin-left: 2em;
+}
+
+#reply-content-container {
+    display:none;
+}
+
+#reply-content-container {
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    padding: 1em 1em 0.5em;
+}
+
+#reply-title {
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 0.5em;
+}
+
+.add-comment a, .reply a{
+    text-decoration: none;
+}
+
+.django-ckeditor-widget {
+    width: 100%;
+}
