@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}错误 - 赤門{% endblock %}
+
+{% block main %}
+    {{ message }}
+    <a href="{{ redirect_to }}">返回</a>
+{% endblock %}
