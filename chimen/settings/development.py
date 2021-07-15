@@ -22,7 +22,7 @@ SECRET_KEY = 'ce+@ad+eir$37550+(#pmkjct(dlziewi_xkm#7xrauaxs)vb@'
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Database
