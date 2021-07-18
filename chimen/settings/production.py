@@ -53,6 +53,7 @@ EMAIL_USE_TLS = True
 
 
 # Admin
+"""
 ADMINS = (
     ('admin', 'chimen.akamon@gmail.com'),
 )
@@ -87,3 +88,4 @@ LOGGING = {
         },
     },
 }
+"""
