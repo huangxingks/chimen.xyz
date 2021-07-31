@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}搜索结果{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+        {% if keywords == '' %}
+            <h3>你没有搜索任何内容。</h3>
+            <p>你可以尝试输入点什么东西，例如：Django</p>
+        {% else %}
+            <h3>搜索“{{ keywords }}”，找到{{ result_count }}个结果</h3>
+            <hr>
+            {{ keywords }}
+            {% for guideline in current_page6 %}
+                {{ guideline }}
+            {% empty %}
+                <p>无结果</p>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+    <div class="row" style="display: flex; justify-content: center;">
+        {% if current_page.has_previous %}
+        <a class="btn btn-default"
+            href="{% url 'search' %}?keywords={{ keywords }}&page={{ current_page.previous_page_number }}">
+            上一页
+        </a>
+        {% endif %}
+
+        {% if current_page.has_next %}
+        <a class="btn btn-default"
+           href="{% url 'search' %}?keywords={{ keywords }}&page={{ current_page.next_page_number }}">
+            下一页
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

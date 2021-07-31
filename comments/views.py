@@ -25,7 +25,7 @@ def comment_update(request):
             else:
                 comment.root = parent
             comment.parent = parent
-            comment.receiver = parent.user
+            comment.recipient = parent.user
         comment.save()
 
         data['status'] = 'SUCCESS'
@@ -39,9 +39,9 @@ def comment_update(request):
         else:
             data['root_pk'] =  ''
         if not parent is None:
-            data['receiver'] = comment.receiver.get_displayname()
+            data['recipient'] = comment.recipient.get_displayname()
         else:
-            data['receiver'] = ''
+            data['recipient'] = ''
     else:
         data['status'] = 'ERROR'
         data['message'] = list(comment_form.errors.values())[0][0]

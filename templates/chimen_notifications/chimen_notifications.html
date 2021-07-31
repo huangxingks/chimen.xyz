@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}赤門{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/chimen_notifications.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+
+            <a class="btn btn-primary" href="{% url 'notifications:mark_all_as_read' %}?next={% url 'chimen_notifications:chimen_notifications' %}">全部标记成已读</a>
+            <a class="btn btn-danger" href="{% url 'chimen_notifications:delete_notifications_read' %}">删除已读消息</a>
+
+            <ul class="notifications">
+            {% for notification in request.user.notifications.all %}
+                <li class="{% if not notification.unread %}read{% endif %}">
+                    [{{ notification.timesince }}之前]
+                    <a href="{% url 'chimen_notifications:chimen_notification' notification.pk %}">{{ notification.verb }}</a>
+                </li>
+            {% empty %}
+                <li>没有消息</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

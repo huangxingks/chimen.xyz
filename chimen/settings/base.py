@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
+    'notifications',
+    'chimen_notifications',
     'user',
     'guidelines',
     'visits',
@@ -132,6 +134,12 @@ CKEDITOR_CONFIGS = {
         'removePlugins': 'elementspath',
         'resize_enabled': False,
     },
+}
+
+
+# django-notifications-hq
+DJANGO_NOTIFICATIONS_CONFIG = { 
+    'USE_JSONFIELD': True,
 }
 
 

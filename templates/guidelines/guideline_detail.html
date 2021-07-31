@@ -143,7 +143,7 @@
                         {% for reply in comment.root_comment.all %}
                             <div class="reply">
                                 <span class="font-weight-bold">{{ reply.user.get_displayname }}</span>
-                                <span>回复{{ reply.receiver.get_displayname }}</span>
+                                <span>回复{{ reply.recipient.get_displayname }}</span>
                                 &nbsp;
                                 <span class="text-secondary">{{ reply.time|date:"Y-m-d H:i" }}</span>
                                 <div id="comment-{{ reply.pk }}">
@@ -282,7 +282,7 @@
                                                     '</div>' +
                                                     '<div class="btn btn-outline-danger" onclick="reply({0})">回复</div>' +
                                                 '</div>';
-                            reply_html = reply_html.format(data['pk'], data['username'], data['receiver'], timeFormat(data['time']), data['text'], data['content_type']);
+                            reply_html = reply_html.format(data['pk'], data['username'], data['recipient'], timeFormat(data['time']), data['text'], data['content_type']);
                             $("#root-" + data['root_pk']).append(reply_html);
                         }
                         
@@ -342,5 +342,10 @@
             });
         }
 
+        if (window.location.hash) {
+            $('html').animate({
+                scrollTop: $(window.location.hash).offset().top - 60
+            }, 500);
+        }
     </script>
 {% endblock %}

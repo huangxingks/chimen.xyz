@@ -1,5 +1,7 @@
 from datetime import datetime
 from django.db import models
+from django.urls import reverse
+
 from ckeditor_uploader.fields import RichTextUploadingField
 
 from visits.models import VisitNumExpandMethod
@@ -76,9 +78,12 @@ class Guideline(models.Model, VisitNumExpandMethod):
 
     additional_information = RichTextUploadingField(default="暂无补充信息", verbose_name="补充信息")
 
-    class Meta:
-        verbose_name = "募集要项"
-        ordering = ['subject', 'university', 'school', 'course']
+    def get_url(self):
+        return reverse('guidelines:guideline_detail', kwargs={'guideline_pk': self.pk})
 
     def __str__(self):
         return str(self.university)+str(self.school)+str(self.course)
+
+    class Meta:
+        verbose_name = "募集要项"
+        ordering = ['subject', 'university', 'school', 'course']

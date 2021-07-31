@@ -11,7 +11,7 @@ class Comment(models.Model):
 
     root = models.ForeignKey('self', related_name='root_comment', null=True, on_delete=models.CASCADE)
     parent = models.ForeignKey('self', related_name='parent_comment', null=True, on_delete=models.CASCADE)
-    receiver = models.ForeignKey(User, related_name='replies', null=True, on_delete=models.CASCADE)
+    recipient = models.ForeignKey(User, related_name='replies', null=True, on_delete=models.CASCADE)
 
     user = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now_add=True)
