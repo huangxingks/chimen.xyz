@@ -11,7 +11,7 @@ class CommentForm(forms.Form):
     object_id = forms.IntegerField(widget=forms.HiddenInput)
     reply_comment_id = forms.IntegerField(widget=forms.HiddenInput(attrs={'id': 'reply-comment-id'}))
     text = forms.CharField(widget=CKEditorWidget(config_name='comment_ckeditor'),
-                           error_messages={'required': "评论不能为空"})
+                           error_messages={'required': "Comment is blank!"})
 
     def __init__(self, *args, **kwargs):
         if 'user' in kwargs:
@@ -22,7 +22,7 @@ class CommentForm(forms.Form):
         if self.user.is_authenticated:
             self.cleaned_data['user'] = self.user
         else:
-            raise forms.ValidationError("用户尚未登录")
+            raise forms.ValidationError("Not log in")
 
         content_type = self.cleaned_data['content_type']
         object_id = self.cleaned_data['object_id']
@@ -31,18 +31,18 @@ class CommentForm(forms.Form):
             model_obj = model_class.objects.get(pk=object_id)
             self.cleaned_data['content_object'] = model_obj
         except ObjectDoesNotExist:
-            raise forms.ValidationError("评论对象不存在")
+            raise forms.ValidationError("Content not exist")
 
         return self.cleaned_data
 
     def clean_reply_comment_id(self):
         reply_comment_id = self.cleaned_data['reply_comment_id']
         if reply_comment_id < 0:
-            raise forms.ValidationError("回复出错")
+            raise forms.ValidationError("Reply error")
         elif reply_comment_id == 0:
             self.cleaned_data['parent'] = None
         elif Comment.objects.filter(pk=reply_comment_id).exists():
             self.cleaned_data['parent'] = Comment.objects.get(pk=reply_comment_id)
         else:
-            raise forms.ValidationError("回复出错")
+            raise forms.ValidationError("Reply error")
         return reply_comment_id

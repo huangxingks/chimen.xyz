@@ -12,17 +12,17 @@
     <div class="row">
         <div class="col-lg-10 offset-lg-1">
 
-            <a class="btn btn-primary" href="{% url 'notifications:mark_all_as_read' %}?next={% url 'chimen_notifications:chimen_notifications' %}">全部标记成已读</a>
-            <a class="btn btn-danger" href="{% url 'chimen_notifications:delete_notifications_read' %}">删除已读消息</a>
+            <a class="btn btn-primary" href="{% url 'notifications:mark_all_as_read' %}?next={% url 'chimen_notifications:chimen_notifications' %}">Mark as checked</a>
+            <a class="btn btn-danger" href="{% url 'chimen_notifications:delete_notifications_read' %}">Delete checked messages</a>
 
             <ul class="notifications">
             {% for notification in request.user.notifications.all %}
                 <li class="{% if not notification.unread %}read{% endif %}">
-                    [{{ notification.timesince }}之前]
+                    [Before {{ notification.timesince }}]
                     <a href="{% url 'chimen_notifications:chimen_notification' notification.pk %}">{{ notification.verb }}</a>
                 </li>
             {% empty %}
-                <li>没有消息</li>
+                <li>No messages</li>
             {% endfor %}
             </ul>
         </div>

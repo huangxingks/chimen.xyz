@@ -33,9 +33,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link btn btn-light" href="{% url 'guidelines:guideline_list' %}" role="button">募集要项</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-light" href="{% url 'guidelines:guideline_list' %}" role="button">Application Guidelines</a></li>
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link btn btn-light" href="{% url 'applications:my_applications' %}" role="button">我的申请</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-light" href="{% url 'applications:my_applications' %}" role="button">My Application</a></li>
                         {% endif %}
                     </ul>
 
@@ -55,18 +55,18 @@
                                     <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item bg-light" href="{% url 'user:user_info' %}">个人中心</a>
-                                    <a class="dropdown-item bg-light" href="{% url 'chimen_notifications:chimen_notifications' %}">站内消息</a>
+                                    <a class="dropdown-item bg-light" href="{% url 'user:user_info' %}">Profile</a>
+                                    <a class="dropdown-item bg-light" href="{% url 'chimen_notifications:chimen_notifications' %}">Message</a>
                                     <sapn class="badge unread-count">{% if unread_count > 0 %}{{ unread_count }}{% endif %}</sapn>
                                     {% if user.is_staff or user.is_superuser %}
-                                        <a class="dropdown-item bg-light" href="{% url 'admin:index' %}">后台管理</a>
+                                        <a class="dropdown-item bg-light" href="{% url 'admin:index' %}">Backend</a>
                                     {% endif %}
-                                    <a class="dropdown-item bg-light" href="{% url 'user:logout' %}?from={{ request.get_full_path }}">退出</a>
+                                    <a class="dropdown-item bg-light" href="{% url 'user:logout' %}?from={{ request.get_full_path }}">Log out</a>
                                 </div>
                             </li>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link btn btn-danger btn-login" href="{% url 'user:login' %}?from={{ request.get_full_path }}" role="button">登录</a></li>
-                            <li class="nav-item"><a class="nav-link btn btn-outline-danger btn-register" href="{% url 'user:register' %}?from={{ request.get_full_path }}" role="button">注册</a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-danger btn-login" href="{% url 'user:login' %}?from={{ request.get_full_path }}" role="button">Log In</a></li>
+                            <li class="nav-item"><a class="nav-link btn btn-outline-danger btn-register" href="{% url 'user:register' %}?from={{ request.get_full_path }}" role="button">Register</a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -84,7 +84,7 @@
                 <div class="modal-content">
                     <form id="modal-login-form" action="" method="POST">
                         <div class="modal-header">
-                            <h4 class="modal-title">登录</h4>
+                            <h4 class="modal-title">Log In</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -100,8 +100,8 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">登录</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="submit" class="btn btn-primary">Log In</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </form>
                 </div>
@@ -120,7 +120,7 @@
                         if (data['status']=='SUCCESS'){
                             window.location.reload();
                         }else{
-                            $('#modal-login-tip').text('用户名或密码不正确');
+                            $('#modal-login-tip').text('Username or password is incorrect.');
                         }
                     }
                 });

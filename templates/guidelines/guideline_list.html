@@ -4,7 +4,7 @@
 {% load likes_tags %}
 
 
-{% block title %}募集要项 - 赤門{% endblock %}
+{% block title %}Application Guidelines - 赤門{% endblock %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/guideline_list.css' %}">
@@ -17,7 +17,7 @@
         <!-- sidebar-->
         <nav class="sidebar bg-light col-xs-0 col-sm-0 col-md-3 col-lg-2 d-none d-md-block position-fixed">
             <div class="sidebar-section">
-                <h6 class="sidebar-section-title font-weight-bold">学科</h6>
+                <h6 class="sidebar-section-title font-weight-bold">Subject</h6>
                 {% for subject in subjects %}
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="">
@@ -28,57 +28,40 @@
                 {% endfor %}
             </div>
             <div class="sidebar-section">
-                <h6 class="sidebar-section-title font-weight-bold">学位</h6>
+                <h6 class="sidebar-section-title font-weight-bold">Degree</h6>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label" for="flexCheckDefault">
-                        修士
+                        Master
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label" for="flexCheckDefault">
-                        博士
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        一贯制博士
+                        Ph.D.
                     </label>
                 </div>
             </div>
             <div class="sidebar-section">
-                <h6 class="sidebar-section-title font-weight-bold">授课语言</h6>
+                <h6 class="sidebar-section-title font-weight-bold">Language</h6>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label" for="flexCheckDefault">日语</label>
+                    <label class="form-check-label" for="flexCheckDefault">Japanese</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label" for="flexCheckDefault">英语</label>
-                </div>
-            </div>
-            <div class="sidebar-section">
-                <h6 class="sidebar-section-title font-weight-bold">申请时期</h6>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label" for="flexCheckDefault">正在进行</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label" for="flexCheckDefault">尚未开始</label>
+                    <label class="form-check-label" for="flexCheckDefault">English</label>
                 </div>
             </div>
 
-            <div class="btn btn-danger" onclick="">检索</div>
+            <div class="btn btn-danger" onclick="">Filter</div>
         </nav>
 
         <!-- main part -->
         <main role="main" class="col-xs-12 col-sm-12 col-md-9 col-lg-10 ml-sm-auto">
 
             <!-- title -->
-            <h3 class="guideline-category">{% block category %}募集要项{% endblock%}</h3>
+            <h3 class="guideline-category">{% block category %}Application Guidelines{% endblock%}</h3>
 
             <!-- guideline list -->
             {% for guideline in guidelines %}

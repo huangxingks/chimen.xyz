@@ -22,7 +22,7 @@ def ErrorResponse(code, message):
 def like_update(request):
     user = request.user
     if not user.is_authenticated:
-        return ErrorResponse(400, "您还未登录")
+        return ErrorResponse(400, "Not log in")
 
     content_type = request.GET.get('content_type')
     object_id = int(request.GET.get('object_id'))
@@ -32,7 +32,7 @@ def like_update(request):
         model_class = content_type.model_class()
         model_obj = model_class.objects.get(pk=object_id)
     except ObjectDoesNotExist:
-        return ErrorResponse(401, "对象不存在")
+        return ErrorResponse(401, "Object not exist")
 
     if request.GET.get('is_liked') != 'true':
         # like
@@ -45,7 +45,7 @@ def like_update(request):
             return SuccessResponse(like_num.number)
         else:
             # already liked， cannot like
-            return ErrorResponse(402, "您已点赞过此内容")
+            return ErrorResponse(402, "Already liked this content")
     else:
         # unlike
         if LikeRecord.objects.filter(content_type=content_type, object_id=object_id, user=user).exists():
@@ -58,7 +58,7 @@ def like_update(request):
                 like_num.save()
                 return SuccessResponse(like_num.number)
             else:
-                return ErrorResponse(404, '数据错误')
+                return ErrorResponse(404, 'Error')
         else:
             # not liked, cannot unlike
-            return ErrorResponse(403, "您还未点赞过此内容")
+            return ErrorResponse(403, "Haven't liked this content")

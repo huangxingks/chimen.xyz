@@ -27,7 +27,6 @@ def comment_update(request):
             comment.parent = parent
             comment.recipient = parent.user
         comment.save()
-
         data['status'] = 'SUCCESS'
         data['username'] = comment.user.get_displayname()
         data['time'] = comment.time.timestamp()

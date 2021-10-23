@@ -11,6 +11,7 @@ class LikeNum(models.Model):
 
     number = models.IntegerField(default=0)
 
+
 class LikeRecord(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()

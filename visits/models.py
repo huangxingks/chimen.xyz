@@ -3,6 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.db.models.fields import exceptions
 
+
 class VisitNum(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
@@ -11,7 +12,7 @@ class VisitNum(models.Model):
     number = models.IntegerField(default=0)
 
     class Meta:
-        verbose_name = '访问量'
+        verbose_name = 'Vist Number'
 
 
 class VisitNumExpandMethod():

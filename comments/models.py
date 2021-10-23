@@ -24,5 +24,5 @@ class Comment(models.Model):
         pass
 
     class Meta:
-        verbose_name = '评论'
+        verbose_name = 'Comment'
         ordering = ['time']
